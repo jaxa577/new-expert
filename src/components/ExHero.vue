@@ -56,7 +56,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
-  },
+  },  
 };
 </script>
 

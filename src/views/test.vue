@@ -14,7 +14,7 @@
           </div>
         </div>
 
-        <!-- <div v-if="currentTab === 1" class="signin">
+        <div v-if="currentTab === 1" class="signin">
           <div class="login-inputs">
             <div class="input-section login_input">
               <label for="login-login" class="input_title">Логин</label>
@@ -28,11 +28,11 @@
               </div>
             </div>
             <div class="input-section login_input">
-              <label for="password_password" class="input_title">Пароль</label>
+              <label for="password-password" class="input_title">Пароль</label>
               <div class="input_field">
                 <input
                   class="input__field default-input"
-                  id="password_password"
+                  id="password-password"
                   placeholder="Пароль"
                   type="password"
                 />
@@ -60,7 +60,7 @@
               </a>
             </div>
           </div>
-        </div> -->
+        </div>
 
         <div v-if="currentTab === 2" class="signup">
           <div class="dropdowns_list">
@@ -174,19 +174,19 @@
             </div>
           </div>
 
-          <div class="agreements">
-            <div class="radio_wrapper">
-              <input type="radio" name="offer" id="offer" />
-              <label for="offer">Ознакомился с предложением</label>
-            </div>
-            <div class="radio_wrapper">
-              <input type="radio" name="confed" id="confed" />
-              <label for="confed"
-                >Ознакомился с политикой конфиденциальности</label
+          <div v-if="isCompOpened || isPhisOpened" class="agreements">
+            <p class="agreement_item">
+              <input type="radio" id="test1" name="radio-group" />
+              <label for="test1">Ознакомился с предложением</label>
+            </p>
+            <p class="agreement_item">
+              <input type="radio" id="test2" name="radio-group2" />
+              <label for="test2"
+                >Ознакомился с политикой конйедециальности</label
               >
-            </div>
+            </p>
           </div>
-          <button @click="handleRegistration()" class="login_btn">Войти</button>
+          <button @click="handleRegistration" class="login_btn">Войти</button>
         </div>
       </div>
     </div>
@@ -205,6 +205,7 @@ export default {
     const currentTab = ref(1);
     const isPhisOpened = ref(false);
     const isCompOpened = ref(false);
+    const isEmail = ref(null);
 
     const isValidPhysicLogin = ref(true);
     const isValidPhysicPassword = ref(true);
@@ -233,6 +234,12 @@ export default {
 
     const validateEmailOrPhone = (value) => {
       // Validate if the input is an email or a phone number
+      if (/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(value)) {
+        isEmail = true;
+      } else if (/^[0-9\s+\-\(\)]+$/.test(value)) {
+        isEmail = false;
+      }
+      console.log("isEmail"), isEmail;
       return (
         /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(value) ||
         /^[0-9\s+\-\(\)]+$/.test(value)
@@ -263,79 +270,82 @@ export default {
       );
     };
 
-    const handleRegistration = async () => {
-      console.log("before");
+    const handleRegistration = () => {
       if (isPhisOpened.value) {
         if (validatePhysicRegistrationInputs()) {
-          console.log("in");
-
-          try {
-            await postDataToApi(codeSendApi, {
-              login_type: "user",
-              login: physicLogin,
-              nick_name: physicNick,
-              registr_type: "user",
-            });
-
-            console.log("Physical entity registration successful!");
-          } catch (error) {
-            console.error("Error during physical entity registration:", error);
-          }
+          postDataToApi(codeSendApi, {
+            login_type: "user",
+            login: physicLogin.value,
+            nick_name: physicNick.value,
+            registr_type: "user",
+          });
+          console.log("Physical entity registration successful!");
         } else {
           console.log("Physical entity registration inputs are not valid");
         }
       } else if (isCompOpened.value) {
         if (validateCompRegistrationInputs()) {
-          try {
-            await postDataToApi(codeSendApi, {
-              login_type: "user",
-              login: compLogin,
-              nick_name: compName,
-              registr_type: "user",
-            });
-
-            console.log("Legal entity (company) registration successful!");
-          } catch (error) {
-            console.error("Error during legal entity registration:", error);
-          }
+          console.log("Legal entity (company) registration successful!");
+          postDataToApi(codeSendApi, {
+            login_type: "user",
+            login: compLogin.value,
+            nick_name: compName.value,
+            registr_type: "user",
+          });
         } else {
-          console.log("Legal entity registration inputs are not valid");
+          console.log(
+            "Legal entity (company) registration inputs are not valid"
+          );
         }
       }
     };
 
-    // const handleRegistration = () => {
-    //   console.log("before");
-    //   if (isPhisOpened.value) {
-    //     if (validatePhysicRegistrationInputs()) {
-    //       console.log("in");
+    async function postDataToApi(url, dataObj) {
+      var myHeaders = new Headers();
+      myHeaders.append(
+        "Authorization",
+        "Basic YXV0aDoxIlVWNGZiUFkpLSI0JTE2cj9qPw=="
+      );
+      myHeaders.append("Content-Type", "application/json");
 
-    //       postDataToApi(codeSendApi, {
-    //         login_type: "user",
-    //         login: physicLogin,
-    //         nick_name: physicNick,
-    //         registr_type: "user",
-    //       });
-    //       console.log("Physical entity registration successful!");
-    //     } else {
-    //       console.log("Physical entity registration inputs are not valid");
-    //     }
-    //   } else if (isCompOpened.value) {
-    //     if (validateCompRegistrationInputs()) {
-    //       console.log("Legal entity (company) registration successful!");
-    //       postDataToApi(codeSendApi, {
-    //         login_type: "user",
-    //         login: compLogin,
-    //         nick_name: compName,
-    //         registr_type: "user",
-    //       });
-    //     } else {
-    //       console.log(
-    //         "Legal entity (company) registration inputs are not valid"
-    //       );
-    //     }
-    //   }
-    // };
+      var raw = JSON.stringify(dataObj);
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
+
+      await fetch(
+        "https://new.expert.uz/services/platon-core/api/v1/registration/user",
+        requestOptions
+      )
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.log("error", error));
+      // try {
+      //   const basicAuthToken = "YXV0aDoxIlVWNGZiUFkpLSI0JTE2cj9qPw=="; // Replace with your actual Basic Auth token
+      //   const response = await fetch(url, {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       Authorization: `Basic ${basicAuthToken}`,
+      //     },
+      //     body: JSON.stringify(dataObj),
+      //   });
+
+      //   if (!response.ok) {
+      //     throw new Error(`HTTP error! Status: ${response.status}`);
+      //   }
+
+      //   const responseData = await response.json();
+      //   return responseData;
+      // } catch (error) {
+      //   console.error("Error fetching data:", error);
+      //   throw error;
+      // }
+    }
 
     // async function postDataToApi(url, dataObj) {
     //   try {
@@ -358,30 +368,6 @@ export default {
     //     throw error;
     //   }
     // }
-
-    async function postDataToApi(url, dataObj) {
-      try {
-        const basicAuthToken = "YXV0aDoxIlVWNGZiUFkpLSI0JTE2cj9qPw=="; // Replace with your actual Basic Auth token
-        const response = await fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${basicAuthToken}`,
-          },
-          body: JSON.stringify(dataObj),
-        });
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const responseData = await response.json();
-        return responseData;
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        throw error;
-      }
-    };
 
     const codeSendApi =
       "https://new.expert.uz/services/platon-auth/api/v1/registration/user";
@@ -411,9 +397,9 @@ export default {
       compLogin,
       compPassword,
       compName,
-      handleRegistration,
       toggleTab,
       toggleDrops,
+      handleRegistration,
     };
   },
 };
@@ -642,7 +628,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin: 50px 0;
+  margin-top: 50px;
 }
 .radio_wrapper {
 }
@@ -661,9 +647,22 @@ export default {
   line-height: 100%; /* 16px */
   letter-spacing: 0.16px;
   transition: 0.3s;
+  margin-top: 50px;
 }
 .login_btn:hover {
   opacity: 0.7;
+}
+.agreement_item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.agreement_item label {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+  text-decoration-line: underline;
+  color: #1e75f8;
 }
 
 /* -------------------- sigin -------------------- */
@@ -802,5 +801,54 @@ export default {
   color: red;
   font-size: 14px;
   margin-top: 5px;
+}
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: #1e75f8;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 </style>
