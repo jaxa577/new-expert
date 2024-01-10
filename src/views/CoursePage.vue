@@ -1,9 +1,11 @@
 <script>
 import cBanner from "../components/course/CBanner.vue";
+import cContent from "../components/course/CContent.vue";
 
 export default {
   components: {
     cBanner,
+    cContent,
   },
 };
 </script>
@@ -11,6 +13,7 @@ export default {
 <template>
     <div class="course-page">
         <cBanner/>
+        <cContent/>
     </div>
 </template>
 
