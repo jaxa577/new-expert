@@ -239,7 +239,7 @@ export default {
       } else if (/^[0-9\s+\-\(\)]+$/.test(value)) {
         isEmail = false;
       }
-      console.log("isEmail"), isEmail;
+      console.log("isEmail", isEmail);
       return (
         /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(value) ||
         /^[0-9\s+\-\(\)]+$/.test(value)
