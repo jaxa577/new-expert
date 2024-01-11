@@ -324,61 +324,10 @@ export default {
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.log("error", error));
-      // try {
-      //   const basicAuthToken = "YXV0aDoxIlVWNGZiUFkpLSI0JTE2cj9qPw=="; // Replace with your actual Basic Auth token
-      //   const response = await fetch(url, {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //       Authorization: `Basic ${basicAuthToken}`,
-      //     },
-      //     body: JSON.stringify(dataObj),
-      //   });
-
-      //   if (!response.ok) {
-      //     throw new Error(`HTTP error! Status: ${response.status}`);
-      //   }
-
-      //   const responseData = await response.json();
-      //   return responseData;
-      // } catch (error) {
-      //   console.error("Error fetching data:", error);
-      //   throw error;
-      // }
     }
-
-    // async function postDataToApi(url, dataObj) {
-    //   try {
-    //     const response = await fetch(url, {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify(dataObj),
-    //     });
-
-    //     if (!response.ok) {
-    //       throw new Error(`HTTP error! Status: ${response.status}`);
-    //     }
-
-    //     const responseData = await response.json();
-    //     return responseData;
-    //   } catch (error) {
-    //     console.error("Error fetching data:", error);
-    //     throw error;
-    //   }
-    // }
 
     const codeSendApi =
       "https://new.expert.uz/services/platon-auth/api/v1/registration/user";
-
-    // postDataToApi(codeSendApi, postData)
-    //   .then((data) => {
-    //     console.log("API Response:", data);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //   });
 
     return {
       tabs,
@@ -405,116 +354,7 @@ export default {
 };
 </script>
 
-<!-- <script>
-import { ref } from "vue";
-
-export default {
-  setup() {
-    const tabs = [
-      { id: 1, name: "Вход" },
-      { id: 2, name: "Регистрация" },
-    ];
-
-    const currentTab = ref(1);
-    const isPhisOpened = ref(false);
-    const isCompOpened = ref(false);
-
-    const isValidPhysicLogin = ref(true);
-    const isValidPhysicPassword = ref(true);
-    const isValidPhysicNick = ref(true);
-
-    const isValidCompLogin = ref(true);
-    const isValidCompPassword = ref(true);
-    const isValidCompName = ref(true);
-
-    const physicLogin = ref("");
-    const physicPassword = ref("");
-    const physicNick = ref("");
-
-    const compLogin = ref("");
-    const compPassword = ref("");
-    const compName = ref("");
-
-    const toggleTab = (id) => {
-      currentTab.value = id;
-    };
-
-    const toggleDrops = (id) => {
-      isPhisOpened.value = id === 1 ? true : false;
-      isCompOpened.value = id === 2 ? true : false;
-    };
-
-    const validatePhysicRegistrationInputs = () => {
-      isValidPhysicLogin.value = /^[0-9\s+\-\(\)]+$/.test(physicLogin.value);
-      isValidPhysicPassword.value = physicPassword.value.length >= 6;
-      isValidPhysicNick.value = /^[a-zA-Z0-9_]+$/.test(physicNick.value);
-
-      return (
-        isValidPhysicLogin.value &&
-        isValidPhysicPassword.value &&
-        isValidPhysicNick.value
-      );
-    };
-
-    const validateCompRegistrationInputs = () => {
-      isValidCompLogin.value = /^[0-9\s+\-\(\)]+$/.test(compLogin.value);
-      isValidCompPassword.value = compPassword.value.length >= 6;
-      isValidCompName.value = /^[a-zA-Z0-9_]+$/.test(compName.value);
-
-      return (
-        isValidCompLogin.value &&
-        isValidCompPassword.value &&
-        isValidCompName.value
-      );
-    };
-
-    const handleRegistration = () => {
-      if (isPhisOpened.value) {
-        if (validatePhysicRegistrationInputs()) {
-          // Perform physical entity registration logic here
-          console.log("Physical entity registration successful!");
-        } else {
-          console.log("Physical entity registration inputs are not valid");
-        }
-      } else if (isCompOpened.value) {
-        if (validateCompRegistrationInputs()) {
-          // Perform legal entity (company) registration logic here
-          console.log("Legal entity (company) registration successful!");
-        } else {
-          console.log(
-            "Legal entity (company) registration inputs are not valid"
-          );
-        }
-      }
-    };
-
-    return {
-      tabs,
-      currentTab,
-      isPhisOpened,
-      isCompOpened,
-      isValidPhysicLogin,
-      isValidPhysicPassword,
-      isValidPhysicNick,
-      isValidCompLogin,
-      isValidCompPassword,
-      isValidCompName,
-      physicLogin,
-      physicPassword,
-      physicNick,
-      compLogin,
-      compPassword,
-      compName,
-      toggleTab,
-      toggleDrops,
-      handleRegistration,
-    };
-  },
-};
-</script> -->
-
 <style scoped>
-/* ... (existing styles) ... */
 .login {
   margin-top: 70px;
 }

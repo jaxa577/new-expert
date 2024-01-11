@@ -39,6 +39,18 @@ const router = createRouter({
       ],
     },
     {
+      path: "/cabinet/",
+      name: "cabinet",
+      children: [
+        {
+          path: "main",
+          name: "main",
+          component: () => import("../views/ExPersonalCabinet.vue"),
+          meta: { showFooter: true, showHeader: true },
+        },
+      ],
+    },
+    {
       path: "/test",
       name: "test",
       component: test,
