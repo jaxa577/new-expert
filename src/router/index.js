@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/ExLanding.vue";
-import CourseCatalogue from "../views/ExCourseCatalogue.vue"; 
+import CourseCatalogue from "../views/ExCourseCatalogue.vue";
 import CoursePage from "../views/CoursePage.vue";
 import Login from "../views/ExLogin.vue";
 import test from "../views/test.vue";

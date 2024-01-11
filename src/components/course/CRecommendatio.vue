@@ -1,24 +1,26 @@
 <template>
   <section class="cRecs">
-    <div class="cRecs_container container">
-      <div class="cRecs_header">
-        <h2 class="cRecs_tilte">Рекомендуем Вам!</h2>
-        <p class="cRecs_text">Исходя из востребованности и рейтинга курсов</p>
+    <div class="container">
+      <div class="cRecs_container">
+        <div class="cRecs_header">
+          <h2 class="cRecs_tilte">Рекомендуем Вам!</h2>
+          <p class="cRecs_text">Исходя из востребованности и рейтинга курсов</p>
+        </div>
+        <swiper class="cRecs_swiper" :slides-per-view="3" space-between="20">
+          <swiper-slide>
+            <courseCard />
+          </swiper-slide>
+          <swiper-slide>
+            <courseCard />
+          </swiper-slide>
+          <swiper-slide>
+            <courseCard />
+          </swiper-slide>
+          <swiper-slide>
+            <courseCard />
+          </swiper-slide>
+        </swiper>
       </div>
-      <swiper class="cRecs_swiper" :slides-per-view="3" space-between="20">
-        <swiper-slide>
-          <courseCard />
-        </swiper-slide>
-        <swiper-slide>
-          <courseCard />
-        </swiper-slide>
-        <swiper-slide>
-          <courseCard />
-        </swiper-slide>
-        <swiper-slide>
-          <courseCard />
-        </swiper-slide>
-      </swiper>
     </div>
   </section>
 </template>
