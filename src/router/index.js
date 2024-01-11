@@ -21,16 +21,22 @@ const router = createRouter({
       meta: { showFooter: false, showHeader: true },
     },
     {
-      path: "/course",
-      name: "course-page",
-      component: CoursePage,
-      meta: { showFooter: true, showHeader: true },
-    },
-    {
-      path: "/courses",
-      name: "course-catalogue",
-      component: CourseCatalogue,
-      meta: { showFooter: true, showHeader: true },
+      path: "/course/",
+      name: "course",
+      children: [
+        {
+          path: "catalogue",
+          name: "catalogue",
+          component: () => import("../views/ExCourseCatalogue.vue"),
+          meta: { showFooter: true, showHeader: true },
+        },
+        {
+          path: "about",
+          name: "about",
+          component: () => import("../views/CoursePage.vue"),
+          meta: { showFooter: true, showHeader: true },
+        },
+      ],
     },
     {
       path: "/test",
