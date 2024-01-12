@@ -46,7 +46,7 @@ const router = createRouter({
           path: "main",
           name: "main",
           component: () => import("../views/ExPersonalCabinet.vue"),
-          meta: { showFooter: true, showHeader: true },
+          meta: { showFooter: false, showHeader: true },
         },
       ],
     },

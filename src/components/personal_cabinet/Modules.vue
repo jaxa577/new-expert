@@ -286,6 +286,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: fit-content;
 }
 .pcModules_item-main {
   border-radius: 20px;
