@@ -17,53 +17,51 @@ export default{
 </script>
 
 <template>
-    <div class="banner_container container">
-        <div class="banner">
-            <div class="banner_content">
-                <div class="course-info">
-                    <div class="course_author">
-                        <img src="@/assets/img/realsoft-inc.svg" alt="Realsoft.inc"/>
-                        <span class="info-btn">
-                            <info_icon/>
-                        </span>
-                    </div>
-                    <div class="course_details">
-                        <div class="detail">
-                            <online_icon/>
-                            <span>Онлайн</span>
-                        </div>
-                        <div class="detail">
-                            <star_icon/>
-                            <span>4.5</span>
-                            <span>(102)</span>
-                        </div>
-                        <div class="detail">
-                            <date_icon/>
-                            <span>12 Месяцев</span>
-                        </div>
-                    </div>
+    <div class="banner">
+        <div class="banner_content">
+            <div class="course-info">
+                <div class="course_author">
+                    <img src="@/assets/img/realsoft-inc.svg" alt="Realsoft.inc"/>
+                    <span class="info-btn">
+                        <info_icon/>
+                    </span>
                 </div>
-                <div class="course-title">
-                    <h1 class="course__title">Курс “Знакомство и первая программа на платформе Platon”</h1>
-                    <p class="course__subtitle">Универсальное программирование для всех: изучите основы кода и станьте мастером универсальной платформы</p>
-                    <div class="caution-sign">
-                        <caution_icon/>
+                <div class="course_details">
+                    <div class="detail">
+                        <online_icon/>
+                        <span>Онлайн</span>
                     </div>
-                </div>
-                <div class="course-btns">
-                    <a class="take-course-btn default-btn" href="#">Записаться</a>
-                    <div class="course-price">
-                        <div class="price_discount">-30%</div>
-                        <div class="price_value">
-                            <span class="actual-price">9 900 000 сум</span>
-                            <span class="profit-price">-29 900 000</span>
-                        </div>
+                    <div class="detail">
+                        <star_icon/>
+                        <span>4.5</span>
+                        <span>(102)</span>
+                    </div>
+                    <div class="detail">
+                        <date_icon/>
+                        <span>12 Месяцев</span>
                     </div>
                 </div>
             </div>
-            <div class="banner_picture">
-                <img class="banner__picture" src="@/assets/img/course-banner.jpg"/>
+            <div class="course-title">
+                <h1 class="course__title">Курс “Знакомство и первая программа на платформе Platon”</h1>
+                <p class="course__subtitle">Универсальное программирование для всех: изучите основы кода и станьте мастером универсальной платформы</p>
+                <div class="caution-sign">
+                    <caution_icon/>
+                </div>
             </div>
+            <div class="course-btns">
+                <a class="take-course-btn default-btn" href="#">Записаться</a>
+                <div class="course-price">
+                    <div class="price_discount">-30%</div>
+                    <div class="price_value">
+                        <span class="actual-price">9 900 000 сум</span>
+                        <span class="profit-price">-29 900 000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner_picture">
+            <img class="banner__picture" src="@/assets/img/course-banner.jpg"/>
         </div>
     </div>
 </template>
@@ -196,25 +194,6 @@ export default{
     .course-btns .default-btn{
         height: 60px;
         max-width: 348px;
-    }
-
-    .default-btn{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        padding: 5px;
-        border-radius: 50px;
-        background: var(--c-accent-1);
-        cursor: pointer;
-
-        width: 100%;
-        height: 50px;
-    }
-    .default-btn > *, .default-btn{
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--white);
     }
 
     .course-price{
