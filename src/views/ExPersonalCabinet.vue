@@ -6,6 +6,7 @@
       <div class="pcDynamic_page">
         <pcInfo v-if="activePage == 1" />
         <jobEdu v-if="activePage == 2" />
+        <pcSecurity v-if="activePage == 5" />
       </div>
     </div>
   </section>
@@ -16,6 +17,9 @@ import pcModules from "../components/personal_cabinet/Modules.vue";
 import pcMenuBar from "../components/personal_cabinet/CustomMenuBar.vue";
 import pcInfo from "../components/personal_cabinet/PersonaInfo.vue";
 import jobEdu from "../components/personal_cabinet/JobEdu.vue";
+import pcSecurity from "../components/personal_cabinet/Security.vue";
+
+
 
 export default {
   components: {
@@ -23,6 +27,7 @@ export default {
     pcMenuBar,
     pcInfo,
     jobEdu,
+    pcSecurity,
   },
 
   data() {
@@ -59,5 +64,42 @@ export default {
 }
 .pcInfo {
   /* height: 150vh; */
+}
+
+
+
+button {
+    transition: 0.3s;
+}
+button:hover {
+    opacity: 0.7;
+}
+.pcInput{
+    border-radius: 10px;
+    background: var(--light-grey);
+    height: 50px;
+    padding: 0 14px;
+    width: 100%;
+    font-size: 20px;
+}
+.pcButton-def{
+    border-radius: 10px;
+    background: var(--c-accent-1);
+    width: 100%;
+    height: 50px;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.16px;
+}
+.pcButton-red{
+    border-radius: 10px;
+    background: #F43834;
+    width: 100%;
+    height: 50px;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.16px;
 }
 </style>
