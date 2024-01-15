@@ -3,10 +3,16 @@
     <div class="change-pw pcSecurity-sec">
       <h3 class="pcSecurity_title">Изменить</h3>
       <div class="change-pw_inputs pcSecurity-sec_cboard">
-        <div class="pw-conf-input">
-          <input class="pcInput" type="password" placeholder="Пароль" />
+        <div class="pw-change-input">
+          <input class="pcInput" type="password" placeholder="Старый пароль" />
         </div>
-        <button class="change-pw_btn">Изменить</button>
+        <div class="pw-change-input">
+          <input class="pcInput" type="password" placeholder="Новый пароль" />
+        </div>
+        <div class="pw-change-input">
+          <input class="pcInput" type="password" placeholder="Повторите новый пароль" />
+        </div>
+        <button class="change-pw_btn pcButton-def">Изменить</button>
       </div>
     </div>
     <div class="profile-privacy pcSecurity-sec">
@@ -102,7 +108,7 @@ export default {
   padding: 20px;
 }
 
-.change-pw_btn{
+/* .change-pw_btn{
     border-radius: 10px;
     background: var(--light-grey);
     width: 100%;
@@ -111,7 +117,7 @@ export default {
     font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.16px;
-}
+} */
 
 .privacy-btn input[type="radio"]{
     display: none;
