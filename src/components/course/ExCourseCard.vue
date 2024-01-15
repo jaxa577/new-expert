@@ -44,7 +44,8 @@
   </div>
 </template>
 
-<script></script>
+<script>
+</script>
 
 <style>
 .course_card {

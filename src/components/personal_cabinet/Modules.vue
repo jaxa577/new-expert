@@ -1,14 +1,19 @@
 <template>
-  <section class="pcModules">
+  <!-- <section class="pcModules">
     <div class="pcModules_container container">
       <div class="pcModules_title">
         <h2>Модули</h2>
         <img src="/images/arrow_right.svg" alt="" />
       </div>
-      <div class="pcModules_list">
+      <div
+        ref="scrollContainer"
+        @mousedown="($event) => startDrag($event, index)"
+        class="pcModules_list"
+      >
         <div
           v-for="(pcModule, index) in modulesList"
           class="pcModules_item"
+          ref="draggableContent"
           :key="index"
         >
           <div
@@ -32,6 +37,48 @@
               class="pcModules_item-submenu"
               :key="index"
               :href="sub.link"
+              >{{ sub.name }}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="pcModules">
+    <div class="pcModules_container container">
+      <div class="pcModules_title">
+        <h2>Модули</h2>
+        <img src="/images/arrow_right.svg" alt="" />
+      </div>
+      <div ref="scrollContainer" class="pcModules_list">
+        <div
+          v-for="(pcModule, index) in modulesList"
+          :key="index"
+          class="pcModules_item"
+        >
+          <div
+            class="pcModules_item-main"
+            @mousedown="($event) => startDrag($event, index)"
+            @click="toggleSubMenu(index)"
+            :class="[{ active: pcModule.showSubMenus }, pcModule.type]"
+          >
+            <img
+              class="pcModules_icon"
+              :src="`/images/${pcModule.icon}`"
+              alt=""
+            />
+            {{ pcModule.name }}
+          </div>
+          <div
+            class="pcModules_item-submenus"
+            :class="{ closed: !pcModule.showSubMenus }"
+          >
+            <a
+              v-for="(sub, index) in pcModule.subMenus"
+              :key="index"
+              :href="sub.link"
+              class="pcModules_item-submenu"
               >{{ sub.name }}</a
             >
           </div>
@@ -246,6 +293,27 @@ export default {
     toggleSubMenu(i) {
       this.modulesList[i].showSubMenus = !this.modulesList[i].showSubMenus;
     },
+    startDrag(event, index) {
+      let isDragging = true;
+      let startPosition = event.clientX;
+      let startScrollLeft = this.$refs.scrollContainer.scrollLeft;
+
+      const handleDrag = (event) => {
+        if (isDragging) {
+          const delta = startPosition - event.clientX;
+          this.$refs.scrollContainer.scrollLeft = startScrollLeft + delta;
+        }
+      };
+
+      const stopDrag = () => {
+        isDragging = false;
+        document.removeEventListener("mousemove", handleDrag);
+        document.removeEventListener("mouseup", stopDrag);
+      };
+
+      document.addEventListener("mousemove", handleDrag);
+      document.addEventListener("mouseup", stopDrag);
+    },
   },
 };
 </script>
@@ -276,6 +344,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 20px;
+  white-space: nowrap;
   overflow-x: auto;
   padding-bottom: 20px;
 }
@@ -287,6 +356,9 @@ export default {
   align-items: center;
   gap: 10px;
   min-width: fit-content;
+  white-space: nowrap;
+  cursor: grab;
+  user-select: none;
 }
 .pcModules_item-main {
   border-radius: 20px;

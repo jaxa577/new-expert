@@ -26,10 +26,6 @@
 
 <script>
 export default {
-  //   props: {
-  //     menuList: Array,
-  //   },
-
   data() {
     return {
       showMenu: true,
@@ -75,6 +71,7 @@ export default {
     },
     toggleActive(item) {
       this.activeMenu = item.id;
+      this.$emit("toggle-page", item);
     },
   },
 };
@@ -114,7 +111,7 @@ export default {
   transition: all 0.4s ease;
 }
 .cMenu_list.show {
-  max-height: 300px;
+  max-height: 400px;
   /* transition: all 0.4s ease; */
 }
 .cMenu_list-item {
