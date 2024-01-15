@@ -6,6 +6,12 @@
       <div class="pcDynamic_page">
         <pcInfo v-if="activePage == 1" />
         <jobEdu v-if="activePage == 2" />
+<<<<<<< HEAD
+        <pcSecurity v-if="activePage == 5" />
+=======
+
+        <wallet v-if="activePage == 4" />
+>>>>>>> a95d2db6f028455f17c136381820cc431b93cf88
       </div>
     </div>
   </section>
@@ -16,6 +22,13 @@ import pcModules from "../components/personal_cabinet/Modules.vue";
 import pcMenuBar from "../components/personal_cabinet/CustomMenuBar.vue";
 import pcInfo from "../components/personal_cabinet/PersonaInfo.vue";
 import jobEdu from "../components/personal_cabinet/JobEdu.vue";
+<<<<<<< HEAD
+import pcSecurity from "../components/personal_cabinet/Security.vue";
+
+
+=======
+import wallet from "../components/personal_cabinet/PaymentMethods.vue";
+>>>>>>> a95d2db6f028455f17c136381820cc431b93cf88
 
 export default {
   components: {
@@ -23,6 +36,11 @@ export default {
     pcMenuBar,
     pcInfo,
     jobEdu,
+<<<<<<< HEAD
+    pcSecurity,
+=======
+    wallet,
+>>>>>>> a95d2db6f028455f17c136381820cc431b93cf88
   },
 
   data() {
