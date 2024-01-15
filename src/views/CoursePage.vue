@@ -5,8 +5,8 @@ import cSection2 from "../components/course/CSection2.vue";
 import cSection3 from "../components/course/CSection3.vue";
 import cSection4 from "../components/course/CSection4.vue";
 import cSection5 from "../components/course/CSection5.vue";
-
-
+import FeedBackForm from "../components/course/FeedBackForm.vue";
+import cSection6 from "../components/course/CSection6.vue";
 
 
 
@@ -18,6 +18,8 @@ export default {
     cSection3,
     cSection4,
     cSection5,
+    FeedBackForm,
+    cSection6,
   },
 };
 </script>
@@ -31,6 +33,8 @@ export default {
         <cSection3/>
         <cSection4/>
         <cSection5/>
+        <FeedBackForm/>
+        <cSection6/>
     </div>
   </div>
 </template>
