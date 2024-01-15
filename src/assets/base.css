@@ -27,12 +27,12 @@
 } */
 
 :root {
-  --c-accent-1: #1E75F8;
+  --c-accent-1: #1e75f8;
 
   --black: #040404;
-  --grey: #6C6C6C;
-  --light-grey: #F3F3F3;
-  --white: #FFFFFF;
+  --grey: #6c6c6c;
+  --light-grey: #f3f3f3;
+  --white: #ffffff;
 
   --color-text-light: var(--grey);
   --color-text-normal: var(--black);
@@ -84,4 +84,16 @@ section {
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
+}
+.input {
+  border-radius: 10px;
+  background: var(---Light-Grey, #f3f3f3);
+  height: 50px;
+  padding: 0 14px;
+  width: 100%;
+  color: var(---Dark-grey, #6c6c6c);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 120%; /* 24px */
+  letter-spacing: 0.2px;
 }

@@ -6,7 +6,6 @@
       <div class="pcDynamic_page">
         <pcInfo v-if="activePage == 1" />
         <jobEdu v-if="activePage == 2" />
-        <pcSecurity v-if="activePage == 5" />
       </div>
     </div>
   </section>
@@ -17,9 +16,6 @@ import pcModules from "../components/personal_cabinet/Modules.vue";
 import pcMenuBar from "../components/personal_cabinet/CustomMenuBar.vue";
 import pcInfo from "../components/personal_cabinet/PersonaInfo.vue";
 import jobEdu from "../components/personal_cabinet/JobEdu.vue";
-import pcSecurity from "../components/personal_cabinet/Security.vue";
-
-
 
 export default {
   components: {
@@ -27,7 +23,6 @@ export default {
     pcMenuBar,
     pcInfo,
     jobEdu,
-    pcSecurity,
   },
 
   data() {
