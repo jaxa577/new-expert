@@ -27,8 +27,8 @@ export default {
     pcMenuBar,
     pcInfo,
     jobEdu,
-    pcSecurity,
     wallet,
+    pcSecurity,
   },
 
   data() {
@@ -63,9 +63,9 @@ export default {
   max-width: 750px;
   width: 100%;
 }
-.pcInfo {
-  /* height: 150vh; */
-}
+/* .pcInfo {
+  height: 150vh;
+} */
 
 button {
   transition: 0.3s;

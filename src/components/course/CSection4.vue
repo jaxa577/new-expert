@@ -198,6 +198,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 1;
+        transition: .3s ease;
     }
 
     @media screen and (max-width: 1440px) {

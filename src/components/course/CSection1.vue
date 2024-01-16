@@ -184,6 +184,10 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        transition: .3s ease;
+    }
+    .platon-course_video:hover .play-btn{
+        opacity: 0.7;
     }
 
 
