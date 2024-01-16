@@ -45,7 +45,7 @@
     </div>
   </section> -->
 
-  <section class="pcModules">
+  <div class="pcModules">
     <div class="pcModules_container container">
       <div class="pcModules_title">
         <h2>Модули</h2>
@@ -85,7 +85,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>

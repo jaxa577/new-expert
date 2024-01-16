@@ -21,8 +21,6 @@ import jobEdu from "../components/personal_cabinet/JobEdu.vue";
 import wallet from "../components/personal_cabinet/PaymentMethods.vue";
 import pcSecurity from "../components/personal_cabinet/Security.vue";
 
-
-
 export default {
   components: {
     pcModules,
