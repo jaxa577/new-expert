@@ -10,9 +10,7 @@ import cSection6 from "../components/course/CSection6.vue";
 import cSection7 from "../components/course/CSection7.vue";
 import cBanner1 from "../components/course/CBanner1.vue";
 import cSection8 from "../components/course/cSection8.vue";
-
-
-
+import cFeedbacks from "../components/course/CFeedbacks.vue";
 
 
 export default {
@@ -28,6 +26,7 @@ export default {
     cSection7,
     cBanner1,
     cSection8,
+    cFeedbacks,
   },
 };
 </script>
@@ -46,6 +45,7 @@ export default {
         <cSection7/>
         <cBanner1/>
         <cSection8/>
+        <cFeedbacks/>
     </div>
   </div>
 </template>
