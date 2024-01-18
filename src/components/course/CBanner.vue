@@ -43,7 +43,7 @@ export default{
                 </div>
             </div>
             <div class="course-title">
-                <h1 class="course__title">Курс “Знакомство и первая программа на платформе Platon”</h1>
+                <h1 class="course__title title-1">Курс “Знакомство и первая программа на платформе Platon”</h1>
                 <p class="course__subtitle">Универсальное программирование для всех: изучите основы кода и станьте мастером универсальной платформы</p>
                 <div class="caution-sign">
                     <caution_icon/>
@@ -167,10 +167,6 @@ export default{
     }
     .course__title{
         max-width: 985px;
-        font-size: 60px;
-        font-weight: 700;
-        line-height: 60px;
-        letter-spacing: -1.2px;
     }
     .course__subtitle{
         max-width: 609px;
