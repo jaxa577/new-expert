@@ -1,9 +1,4 @@
 <script>
-    import check_icon from '@/assets/icons/check_icon.vue'
-    import play_icon from '@/assets/icons/videoplay_icon.vue'
-
-
-
 
     export default{
         data(){
@@ -15,8 +10,7 @@
             }
         },
         components: {
-            check_icon,
-            play_icon,
+
         },
         methods:{
             toggleVideo(video){
@@ -50,19 +44,19 @@
                 <h5 class="advs-list_title">В курсе Знакомство с Platon:</h5>
                 <ul class="advs-list">
                     <li class="adv">
-                        <check_icon/>
+                        <img src="@/assets/icons/check_icon.svg">
                         <span>Глубокое погружение в языки программирования</span>
                     </li>
                     <li class="adv">
-                        <check_icon/>
+                        <img src="@/assets/icons/check_icon.svg">
                         <span>Основы и концепции разработки ПО</span>
                     </li>
                     <li class="adv">
-                        <check_icon/>
+                        <img src="@/assets/icons/check_icon.svg">
                         <span>Профессиональные преподаватели и эксперты</span>
                     </li>
                     <li class="adv">
-                        <check_icon/>
+                        <img src="@/assets/icons/check_icon.svg">
                         <span>Гибкость и индивидуальный подход</span>
                     </li>
                 </ul>
@@ -71,7 +65,7 @@
         <div @click="toggleVideo($refs.VideoPlayer)" class="platon-course_video">
             <div class="video-control">
                 <div v-show="this.vplayer_state == false" class="play-btn">
-                    <play_icon/>
+                    <img src="@/assets/icons/play_icon.svg">
                 </div>
                 <div class="video-track" :style="{width: this.vplayer_timeline + '%'}"></div>
             </div>
@@ -194,6 +188,23 @@
     @media screen and (max-width: 1440px) {
         .platon-desc p:last-child{
             display: none;
+        }
+        .platon-course_video{
+            min-width: 475px;
+        }
+        .platon-course{
+            padding: 60px 50px;
+            gap: 30px;
+        }
+    }
+    @media screen and (max-width: 1024px){
+        .platon-course{
+            flex-direction: column;
+            gap: 40px;
+        }
+        .platon-course_video{
+            max-width: none;
+            min-width: 0;
         }
     }
 </style>

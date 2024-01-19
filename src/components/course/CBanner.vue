@@ -1,17 +1,8 @@
 <script>
-import info_icon from '@/assets/icons/info_icon.vue'
-import online_icon from '@/assets/icons/online_icon.vue'
-import star_icon from '@/assets/icons/star_icon.vue'
-import date_icon from '@/assets/icons/date_icon.vue'
-import caution_icon from '@/assets/icons/caution_icon.vue'
 
 export default{
     components: {
-        info_icon,
-        online_icon,
-        star_icon,
-        date_icon,
-        caution_icon,
+        
     },
 }
 </script>
@@ -23,21 +14,21 @@ export default{
                 <div class="course_author">
                     <img src="@/assets/img/realsoft-inc.svg" alt="Realsoft.inc"/>
                     <span class="info-btn">
-                        <info_icon/>
+                        <img src="@/assets/icons/info_icon.svg">
                     </span>
                 </div>
                 <div class="course_details">
                     <div class="detail">
-                        <online_icon/>
+                        <img src="@/assets/icons/online_icon.svg">
                         <span>Онлайн</span>
                     </div>
                     <div class="detail">
-                        <star_icon/>
+                        <img src="@/assets/icons/star_icon.svg">
                         <span>4.5</span>
                         <span>(102)</span>
                     </div>
                     <div class="detail">
-                        <date_icon/>
+                        <img src="@/assets/icons/date_icon.svg">
                         <span>12 Месяцев</span>
                     </div>
                 </div>
@@ -45,8 +36,8 @@ export default{
             <div class="course-title">
                 <h1 class="course__title title-1">Курс “Знакомство и первая программа на платформе Platon”</h1>
                 <p class="course__subtitle">Универсальное программирование для всех: изучите основы кода и станьте мастером универсальной платформы</p>
-                <div class="caution-sign">
-                    <caution_icon/>
+                <div class="report-btn">
+                    <img src="@/assets/icons/caution_icon.svg">
                 </div>
             </div>
             <div class="course-btns">
@@ -59,6 +50,7 @@ export default{
                     </div>
                 </div>
             </div>
+            <div class="bg-assets"></div>
         </div>
         <div class="banner_picture">
             <img class="banner__picture" src="@/assets/img/course-banner.jpg"/>
@@ -71,6 +63,11 @@ export default{
         display: flex;
         gap: 30px;
     }
+
+    .banner svg{
+        flex-shrink: 0;
+    }
+
     .banner_content{
         flex: 0.6437869822485207;
         min-height: 605px;
@@ -79,13 +76,22 @@ export default{
         color: var(--white);
         position: relative;
         display: flex;
-        overflow: hidden;
         flex-direction: column;
         gap: 60px;
         padding: 80px 50px 75px 50px;
     }
 
-    .banner_content::after, .banner_content::before{
+
+    .bg-assets{
+        position: absolute;
+        border-radius: inherit;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    .bg-assets::after, .bg-assets::before{
         content: "";
         display: block;
         position: absolute;
@@ -96,14 +102,14 @@ export default{
         filter: blur(74px);
     }
 
-    .banner_content::before{
+    .bg-assets::before{
         top: -1%;
         left: -2%;
         transform: translateX(-50%) translateY(-50%);
         animation: 3s glowing infinite ease;
         animation-delay: 1s;
     }
-    .banner_content::after{
+    .bg-assets::after{
         bottom: 0;
         right: 2%;
         transform: translateX(50%) translateY(50%);
@@ -171,10 +177,10 @@ export default{
     .course__subtitle{
         max-width: 609px;
         font-size: 20px;
-        line-height: 24px;
+        line-height: 120%;
     }
 
-    .caution-sign{
+    .report-btn{
         display: flex;
         width: fit-content;
         height: fit-content;
@@ -187,7 +193,7 @@ export default{
         z-index: 1;
     }
 
-    .course-btns .default-btn{
+    .take-course-btn{
         height: 60px;
         max-width: 348px;
     }
@@ -236,5 +242,93 @@ export default{
     100% {
         filter: blur(74px);
     }
+    }
+
+
+
+    @media screen and (max-width: 1440px) {
+        .banner{
+            gap: 20px;
+        }
+        .banner_content{
+            min-width: 675px;
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        .banner{
+            flex-direction: column-reverse;
+        }
+        .banner_picture{
+            display: none;
+        }
+        .banner_content{
+            flex: 1;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .banner__picture{
+            border-radius: 25px;
+        }
+        .banner_picture{
+            aspect-ratio: 362/210;
+            max-height: 350px;
+            min-height: 0;
+            display: flex;
+            flex: 1;
+        }
+        .banner_content{
+            border-radius: 25px;
+            padding: 50px 30px;
+            margin-bottom: 80px;
+            min-width: 0;
+            min-height: 0;
+        }
+        .course_details .detail{
+            padding: 0;
+        }
+        .banner_content{
+            gap: 40px;
+        }
+        .report-btn svg{
+            width: 25px;
+            height: 25px;
+        }
+        .report-btn{
+            position: absolute;
+            top: 50px;
+            right: 30px;
+        }
+        .course-info{
+            gap: 40px;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .course-price{
+            display: none;
+        }
+        .course__subtitle{
+            font-size: 17px;
+            letter-spacing: 0.34px;
+        }
+
+        .course-btns{
+            width: 100%;
+            left: 0;
+            bottom: -80px;
+            position: absolute;
+        }
+        .take-course-btn{
+            max-width: none;
+        }
+    }
+
+    @media screen and (max-width: 425px){
+        .course-title{
+            gap: 16px;
+        }
+        .banner_content{
+            padding: 30px 15px 45px 15px;
+        }
     }
 </style>

@@ -1,9 +1,8 @@
 <script>
-    import check_icon from '@/assets/icons/check_icon.vue'
 
     export default{
         components: {
-            check_icon,
+
         },
     }
 </script>
@@ -16,19 +15,19 @@
         </div>
         <div class="course-benefit-options">
             <div class="benefit_option">
-                <check_icon/>
+                <img src="@/assets/icons/check_icon.svg">
                 <span>Писать простые программы на Platon</span>
             </div>
             <div class="benefit_option">
-                <check_icon/>
+                <img src="@/assets/icons/check_icon.svg">
                 <span>Логика с условиями и циклами</span>
             </div>
             <div class="benefit_option">
-                <check_icon/>
+                <img src="@/assets/icons/check_icon.svg">
                 <span>Использование Jupyter Notebook</span>
             </div>
             <div class="benefit_option">
-                <check_icon/>
+                <img src="@/assets/icons/check_icon.svg">
                 <span>Декораты</span>
             </div>
         </div>
@@ -79,7 +78,7 @@
         font-weight: 700;
     }
 
-    .benefit_option svg{
+    .benefit_option img{
         width: 42px;
         height: 42px;
         flex-shrink: 0;

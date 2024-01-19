@@ -1,6 +1,4 @@
 <script>
-    import verified_icon from '@/assets/icons/verified_icon.vue'
-
 
     export default{
         data(){
@@ -8,7 +6,7 @@
         },
 
         components: {
-            verified_icon,
+
         },
 
         methods:{
@@ -30,7 +28,7 @@
                 <div class="author-details">
                     <div class="author-name">
                         <h3 class="author_name title-3">Алексей Оксов</h3>
-                        <verified_icon/>
+                        <img src="@/assets/icons/verified_icon.svg">
                     </div>
                     <p class="author-bio paragraph-light">Саша, виртуозный программист и вдохновляющий преподаватель, способен превратить сложные концепции программирования в простые и понятные идеи. Он с легкостью разгадывает технические головоломки и находит элегантные решения для самых сложных задач. Саша не только передает свои знания, но и вдохновляет своих студентов креативным мышлением и стремлением к совершенству.</p>
                 </div>

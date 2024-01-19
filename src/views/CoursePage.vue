@@ -180,4 +180,14 @@ export default {
         font-weight: 700;
         color: var(--grey);
     }
+
+    @media screen and (max-width: 768px){
+        .title-1{
+            font-size: 36px;
+            letter-spacing: -0.72px;
+        }
+        .course-page_wrapp{
+            padding-top: 10px;
+        }
+    }
 </style>

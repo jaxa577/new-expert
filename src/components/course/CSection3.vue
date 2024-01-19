@@ -50,6 +50,7 @@
 
     .characters_list{
         display: flex;
+        flex-wrap: wrap;
         gap: 20px;
     }
 
@@ -61,6 +62,7 @@
         border-radius: 25px;
         border: 3px solid var(--light-grey);
         max-width: 576px;
+        min-width: 396px;
         min-height: 376px;
         flex: 1;
     }
@@ -88,5 +90,22 @@
         font-size: 30px;
         font-weight: 700;
         letter-spacing: -0.6px;
+    }
+
+
+
+    @media screen and (max-width: 1440px) {
+        .course-character_card{
+            gap: 60px;
+        }
+        .course-character_card{
+            max-width: none;
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        .course-character_card{
+            gap: 30px;
+            padding: 30px 20px;
+        }
     }
 </style>

@@ -1,12 +1,8 @@
 <script>
-    import play_icon from '@/assets/icons/videoplay_icon.vue'
-    import time_icon from '@/assets/icons/time_icon.vue'
-
 
     export default{
         components: {
-            play_icon,
-            time_icon,
+            
         },
     }
 </script>
@@ -22,7 +18,7 @@
                 <div class="card_header">
                     <div class="card-details">
                         <div class="time-indicator">
-                            <time_icon/>
+                            <img src="@/assets/icons/time_icon.svg">
                             <span>Неделя</span>
                         </div>
                     </div>
@@ -38,7 +34,7 @@
                 <div class="card_header">
                     <div class="card-details">
                         <div class="time-indicator">
-                            <time_icon/>
+                            <img src="@/assets/icons/time_icon.svg">
                             <span>2-3 месяц</span>
                         </div>
                     </div>
@@ -54,7 +50,7 @@
                 <div class="card_header">
                     <div class="card-details">
                         <div class="time-indicator">
-                            <time_icon/>
+                            <img src="@/assets/icons/time_icon.svg">
                             <span>4-5 месяца</span>
                         </div>
                     </div>
@@ -69,7 +65,7 @@
             <div class="course-process_video">
                 <div class="video-control">
                     <div class="play-btn">
-                        <play_icon/>
+                        <img src="@/assets/icons/play_icon.svg">
                     </div>
                     <a class="take-course_btn default-btn" href="#">Записаться</a>
                     <div class="video-track"></div>

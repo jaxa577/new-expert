@@ -1,8 +1,4 @@
 <script>
-    import calendar_icon from '@/assets/icons/calendar_icon.vue'
-    import download_icon from '@/assets/icons/download_icon.vue'
-    import arrow_icon from '@/assets/icons/arrow_icon.vue'
-
 
     export default{
         data(){
@@ -77,9 +73,7 @@
         },
 
         components: {
-            calendar_icon,
-            download_icon,
-            arrow_icon,
+
         },
 
         methods:{
@@ -99,12 +93,12 @@
             <h2 class="syllabus_title title-2">Программа обучения</h2>
             <div class="header_details">
                 <div class="time-tag">
-                    <calendar_icon/> 
+                    <img src="@/assets/icons/calendar_icon.svg">
                     <span>12 Мес</span>
                 </div>
                 <button class="download-btn">
                     <span>Скачать программу</span>
-                    <download_icon/>
+                    <img src="@/assets/icons/download_icon.svg">
                 </button>
             </div>
         </div>
@@ -117,7 +111,7 @@
                             <h3 class="tab_title title-3">{{ tab.title }}</h3>
                         </div>
                         <div class="tab-arrow">
-                            <arrow_icon/>
+                            <img src="@/assets/icons/arrow_icon.svg">
                         </div>
                     </div>
                     <div :class="{'tab-content': true, 'opened': tab.id == this.currentTab}">
@@ -211,8 +205,8 @@
         color: var(--white);
     }
 
-    .syllabus-tab.opened .tab svg{
-        fill: var(--white);
+    .syllabus-tab.opened .tab-arrow > img{
+        filter: brightness(0) invert(1);
     }
 
 

@@ -1,12 +1,4 @@
 <script>
-    import target_icon from '@/assets/icons/target_icon.vue'
-    import folder_icon from '@/assets/icons/folder_icon.vue'
-    import spark_icon from '@/assets/icons/spark_icon.vue'
-    import brain_icon from '@/assets/icons/brain_icon.vue'
-    import money_icon from '@/assets/icons/money_icon.vue'
-
-
-
 
     export default{
         data(){
@@ -14,11 +6,7 @@
         },
 
         components: {
-            target_icon,
-            folder_icon,
-            spark_icon,
-            brain_icon,
-            money_icon,
+            
         },
 
         methods:{}
@@ -28,14 +16,14 @@
 <template>
     <section class="course-priorities">
         <div class="priorities-title sec-title">
-            <h2 class="title-2">Основные цели <target_icon class="title_icon"/> и преимущества нашего курса</h2>
+            <h2 class="title-2">Основные цели <img src="@/assets/icons/target_icon.svg" class="title_icon"> и преимущества нашего курса</h2>
             <p class="paragraph-light">Обучение навыкам, востребованным на рынке, и поддержка студентов в достижении успеха</p>
         </div>
         <div class="priorities-card_wrapp">
             <div class="priority-card">
                 <div class="pr-card-title">
                     <div class="pr-card_icon">
-                        <folder_icon/>
+                        <img src="@/assets/icons/folder_icon.svg">
                     </div>
                     <h3 class="pr-card_title">Множество карьерных возможностей</h3>
                 </div>
@@ -46,7 +34,7 @@
             <div class="priority-card">
                 <div class="pr-card-title">
                     <div class="pr-card_icon">
-                        <spark_icon/>
+                        <img src="@/assets/icons/spark_icon.svg">
                     </div>
                     <h3 class="pr-card_title">Творческий потенциал</h3>
                 </div>
@@ -57,7 +45,7 @@
             <div class="priority-card">
                 <div class="pr-card-title">
                     <div class="pr-card_icon">
-                        <brain_icon/>
+                        <img src="@/assets/icons/brain_icon.svg">
                     </div>
                     <h3 class="pr-card_title">Развитие логического мышления</h3>
                 </div>
@@ -68,7 +56,7 @@
             <div class="priority-card">
                 <div class="pr-card-title">
                     <div class="pr-card_icon">
-                        <money_icon/>
+                        <img src="@/assets/icons/money_icon.svg">
                     </div>
                     <h3 class="pr-card_title">Высокооплачиваемые вакансии</h3>
                 </div>

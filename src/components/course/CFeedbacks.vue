@@ -1,7 +1,6 @@
 <script>
     import { Swiper, SwiperSlide } from "swiper/vue";
     import { Navigation } from 'swiper/modules';
-    import star_icon from '@/assets/icons/star_icon.vue';
 
 
     export default{
@@ -12,7 +11,6 @@
         components: {
             Swiper,
             SwiperSlide,
-            star_icon
         },
 
         methods:{
@@ -50,13 +48,13 @@
                     </div>
                     <div class="fb-card-rate">
                         <div class="fb_star">
-                            <star_icon/>
+                            <img src="@/assets/icons/star_icon.svg">
                         </div>
                         <div class="fb_star">
-                            <star_icon/>
+                            <img src="@/assets/icons/star_icon.svg">
                         </div>
                         <div class="fb_star">
-                            <star_icon/>
+                            <img src="@/assets/icons/star_icon.svg">
                         </div>
                     </div>
                     <div class="fb-card-content">

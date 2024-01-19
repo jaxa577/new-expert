@@ -1,6 +1,0 @@
-<template>
-    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="60" height="60" rx="30" fill="white"/>
-        <path d="M26.09 19.0085C24.7595 18.1437 23 19.0985 23 20.6854V39.3146C23 40.9015 24.7595 41.8563 26.09 40.9915L40.4202 31.6769C41.6335 30.8882 41.6335 29.1118 40.4202 28.3231L26.09 19.0085Z" fill="#2F80F8"/>
-    </svg>
-</template>
