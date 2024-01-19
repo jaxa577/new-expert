@@ -1,50 +1,4 @@
 <template>
-  <!-- <section class="pcModules">
-    <div class="pcModules_container container">
-      <div class="pcModules_title">
-        <h2>Модули</h2>
-        <img src="/images/arrow_right.svg" alt="" />
-      </div>
-      <div
-        ref="scrollContainer"
-        @mousedown="($event) => startDrag($event, index)"
-        class="pcModules_list"
-      >
-        <div
-          v-for="(pcModule, index) in modulesList"
-          class="pcModules_item"
-          ref="draggableContent"
-          :key="index"
-        >
-          <div
-            class="pcModules_item-main"
-            @click="toggleSubMenu(index)"
-            :class="[{ active: pcModule.showSubMenus }, pcModule.type]"
-          >
-            <img
-              class="pcModules_icon"
-              :src="`/images/${pcModule.icon}`"
-              alt=""
-            />
-            {{ pcModule.name }}
-          </div>
-          <div
-            class="pcModules_item-submenus"
-            :class="{ closed: !pcModule.showSubMenus }"
-          >
-            <a
-              v-for="(sub, index) in pcModule.subMenus"
-              class="pcModules_item-submenu"
-              :key="index"
-              :href="sub.link"
-              >{{ sub.name }}</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
   <div class="pcModules">
     <div class="pcModules_container container">
       <div class="pcModules_title">
@@ -59,9 +13,8 @@
         >
           <div
             class="pcModules_item-main"
-            @mousedown="($event) => startDrag($event, index)"
-            @click="toggleSubMenu(index)"
-            :class="[{ active: pcModule.showSubMenus }, pcModule.type]"
+            @click="toggleSubMenu(pcModule)"
+            :class="[{ active: avtiveModule == pcModule.id }, pcModule.type]"
           >
             <img
               class="pcModules_icon"
@@ -70,9 +23,10 @@
             />
             {{ pcModule.name }}
           </div>
+          <div class="pcModules_item-layer"></div>
           <div
             class="pcModules_item-submenus"
-            :class="{ closed: !pcModule.showSubMenus }"
+            :class="{ closed: avtiveModule !== pcModule.id }"
           >
             <a
               v-for="(sub, index) in pcModule.subMenus"
@@ -286,33 +240,13 @@ export default {
           showSubMenus: false,
         },
       ],
+      avtiveModule: 0,
     };
   },
 
   methods: {
-    toggleSubMenu(i) {
-      this.modulesList[i].showSubMenus = !this.modulesList[i].showSubMenus;
-    },
-    startDrag(event, index) {
-      let isDragging = true;
-      let startPosition = event.clientX;
-      let startScrollLeft = this.$refs.scrollContainer.scrollLeft;
-
-      const handleDrag = (event) => {
-        if (isDragging) {
-          const delta = startPosition - event.clientX;
-          this.$refs.scrollContainer.scrollLeft = startScrollLeft + delta;
-        }
-      };
-
-      const stopDrag = () => {
-        isDragging = false;
-        document.removeEventListener("mousemove", handleDrag);
-        document.removeEventListener("mouseup", stopDrag);
-      };
-
-      document.addEventListener("mousemove", handleDrag);
-      document.addEventListener("mouseup", stopDrag);
+    toggleSubMenu(item) {
+      this.avtiveModule = item.id;
     },
   },
 };
@@ -323,15 +257,16 @@ export default {
   margin: 50px 0;
 }
 .pcModules_container {
-  display: flex;
-  align-items: flex-start;
-  gap: 50px;
+  /* display: flex;
+  align-items: flex-start; */
+  /* gap: 50px; */
 }
 .pcModules_title {
   display: flex;
   align-items: center;
   gap: 50px;
   margin-top: 12px;
+  margin-bottom: 20px;
 }
 .pcModules_title h2 {
   color: var(---Black, #040404);
@@ -344,20 +279,18 @@ export default {
   display: flex;
   align-items: center;
   gap: 20px;
-  white-space: nowrap;
-  overflow-x: auto;
-  padding-bottom: 20px;
+  flex-wrap: wrap;
+  overflow: visible;
 }
 .pcModules_list::-webkit-scrollbar {
   display: none;
 }
 .pcModules_item {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
   min-width: fit-content;
-  white-space: nowrap;
-  cursor: grab;
   user-select: none;
 }
 .pcModules_item-main {
@@ -374,59 +307,115 @@ export default {
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
-.pcModules_item-main.active {
+
+.pcModules_item:hover .pcModules_item-main {
+  color: var(---White, #fff);
+}
+.pcModules_item:hover .pcModules_icon {
+  filter: brightness(0) invert(1);
+}
+/* .pcModules_item-main.active {
   color: var(---White, #fff);
 }
 .pcModules_item-main.active .pcModules_icon {
   filter: brightness(0) invert(1);
-}
-.pcModules_item-main.course.active {
+} */
+.pcModules_item:hover .pcModules_item-main.course {
   background: var(---, #2f80f8);
 }
-.pcModules_item-main.vacancy.active {
+.pcModules_item:hover .pcModules_item-main.vacancy {
   background-color: #872ff8;
 }
-.pcModules_item-main.resume.active {
+.pcModules_item:hover .pcModules_item-main.resume {
   background-color: #2f4ff8;
 }
-.pcModules_item-main.experts.active {
+.pcModules_item:hover .pcModules_item-main.experts {
   background-color: #2f80f8;
 }
-.pcModules_item-main.startups.active {
+.pcModules_item:hover .pcModules_item-main.startups {
   background-color: #fbb732;
 }
-.pcModules_item-main.certificates.active {
+.pcModules_item:hover .pcModules_item-main.certificates {
   background-color: #00b06c;
 }
-.pcModules_item-main.tests.active {
+.pcModules_item:hover .pcModules_item-main.tests {
   background-color: #5115b8;
 }
-.pcModules_item-main.freelance.active {
+.pcModules_item:hover .pcModules_item-main.freelance {
   background-color: #ff2a54;
 }
+
 .pcModules_item-submenus {
+  position: absolute;
+  flex-direction: column;
+  top: calc(100% + 10px);
+  left: 0;
   border-radius: 20px;
-  background: #f2f7ff;
   display: flex;
-  align-items: center;
   gap: 30px;
   height: 50px;
-  padding: 0 30px;
-  max-width: 500px;
+  height: fit-content;
   overflow: hidden;
-  transition: all 0.5s ease;
-}
-.pcModules_item-submenus.closed {
-  max-width: 0;
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  max-height: 0;
   padding: 0;
+  /* margin-top: 10px; */
+  transition: all 0.4s ease;
+  min-width: 100%;
+}
+.pcModules_item-layer {
+  position: absolute;
+  flex-direction: column;
+  top: calc(100%);
+  left: 0;
+  height: 10px;
+  width: 100%;
+}
+.pcModules_item-main.course ~ .pcModules_item-submenus {
+  background: #ebf3ff;
+}
+.pcModules_item-main.vacancy ~ .pcModules_item-submenus {
+  background-color: rgba(135, 47, 248, 0.05);
+}
+.pcModules_item-main.resume ~ .pcModules_item-submenus {
+  background: rgba(47, 79, 248, 0.05);
+}
+.pcModules_item-main.experts ~ .pcModules_item-submenus {
+  background-color: rgb(47, 128, 248, 0.05);
+}
+.pcModules_item-main.startups ~ .pcModules_item-submenus {
+  background: rgba(251, 183, 50, 0.05);
+}
+.pcModules_item-main.certificates ~ .pcModules_item-submenus {
+  background: rgba(0, 176, 108, 0.05);
+}
+.pcModules_item-main.tests ~ .pcModules_item-submenus {
+  background: rgba(81, 21, 184, 0.05);
+}
+.pcModules_item-main.freelance ~ .pcModules_item-submenus {
+  background: rgba(255, 42, 84, 0.05);
+}
+.pcModules_item:hover .pcModules_item-submenus {
+  padding: 36px 30px;
+  max-height: 400px;
+}
+.pcModules_item:hover .pcModules_item-submenu {
+  opacity: 1;
 }
 .pcModules_item-submenu {
-  color: var(---Black, #040404);
+  color: #040404;
   font-size: 20px;
   font-weight: 400;
-  line-height: 120%; /* 24px */
+  line-height: 120%;
   letter-spacing: 0.2px;
+  max-height: 50px;
+  opacity: 0;
+  transition: all 0.4s;
+}
+.pcModules_item-submenu:hover {
+  opacity: 0.7 !important;
 }
 </style>
