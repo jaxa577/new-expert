@@ -191,4 +191,9 @@
             gap: 20px;
         }
     }
+    @media screen and (max-width: 1024px) {
+        .salary-statistics{
+            display: none;
+        }
+    }
 </style>

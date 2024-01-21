@@ -186,8 +186,29 @@ export default {
             font-size: 36px;
             letter-spacing: -0.72px;
         }
+        .title-2{
+            font-size: 28px;
+            letter-spacing: -0.56px;
+        }
+        .title-3{
+            font-size: 20px;
+            letter-spacing: -0.4px;
+        }
         .course-page_wrapp{
             padding-top: 10px;
+        }
+        .paragraph-def, .paragraph-light{
+            font-size: 17px;
+            line-height: 120%;
+            letter-spacing: 0.34px;
+        }
+    }
+    @media screen and (max-width: 768px){
+        .sec-title{
+            gap: 25px;
+        }
+        .course-page_wrapp{
+            gap: 120px;
         }
     }
 </style>

@@ -62,8 +62,8 @@
         border-radius: 25px;
         border: 3px solid var(--light-grey);
         max-width: 576px;
-        min-width: 396px;
-        min-height: 376px;
+        min-width: 450px;
+        min-height: 367px;
         flex: 1;
     }
     .character_index{
@@ -86,12 +86,6 @@
         gap: 30px;
     }
 
-    .character_title{
-        font-size: 30px;
-        font-weight: 700;
-        letter-spacing: -0.6px;
-    }
-
 
 
     @media screen and (max-width: 1440px) {
@@ -103,9 +97,27 @@
         }
     }
     @media screen and (max-width: 1024px) {
+        .characters_list{
+            flex-direction: column;
+        }
         .course-character_card{
             gap: 30px;
             padding: 30px 20px;
+            min-width: 0;
+            min-height: 281px;
+        }
+        .character_content{
+            min-width: 0;
+            gap: 15px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .course-characters{
+            gap: 40px;
+        }
+        .character_index{
+            width: 40px;
+            height: 40px;
         }
     }
 </style>
