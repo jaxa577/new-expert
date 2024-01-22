@@ -101,6 +101,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 50px 10px;
+        gap: 30px;
         flex: 1;
         border-radius: 15px;
         background: var(---Light-Grey, #F3F3F3);        
@@ -118,7 +119,14 @@
         height: 436px;
     }
     .large-chart::after{
-        content: url('@/assets/img/band.svg');
+        content: '';
+        background: url('@/assets/img/band.svg');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        aspect-ratio: 285/286;
+        width: 285px;
+        max-height: 100%;
         position: absolute;
         transform: translateY(-50%);
         top: 50%;
@@ -183,6 +191,8 @@
         .vacancy-ad_card{
             max-width: none;
             flex-direction: row;
+            gap: 30px;
+            text-align: left;
             min-height: auto;
             padding: 60px 40px;
         }
@@ -192,8 +202,71 @@
         }
     }
     @media screen and (max-width: 1024px) {
+        .bar-charts{
+            flex-direction: column;
+        }
+        .bar-chart{
+            justify-content: center;
+            flex: none;
+            width: 100%;
+        }
+        .large-chart{
+            justify-content: space-between;
+        }
+        .large-chart::after{
+            transform: translateY(-52%) rotate(20deg);
+        }
+        .vacancy-ad_card .view-vacancy_btn{
+            max-width: 280px;
+        }
+    }
+    @media screen and (max-width: 768px) {
         .salary-statistics{
-            display: none;
+            gap: 20px;
+        }
+        .small-chart{
+            gap: 20px;
+            padding: 10px;
+            height: 130px;
+        }
+        .midd-chart{
+            padding: 30px 10px;
+            height: 170px;
+        }
+        .chart-details{
+            font-size: 17px;
+        }
+        .large-chart{
+            padding: 35px 10px;
+            height: 309px;
+        }
+        .large-chart::after{
+            transform: translateY(-55%) rotate(20deg);
+            width: 205px;
+        }
+        .bar-charts{
+            gap: 25px;
+        }
+        .vacancy-ad_card{
+            gap: 50px;
+            padding: 60px 30px;
+            flex-direction: column;
+        }
+        .card_content{
+            text-align: center;
+            max-width: 550px;
+            align-items: center;
+        }
+        .vacancy-ad_card .view-vacancy_btn{
+            height: 50px;
+        }
+    }
+    @media screen and (max-width: 425px) {
+        .vacancy-ad_card{
+            padding: 60px 10px;
+        }
+        .vacancy-ad_card .view-vacancy_btn{
+            max-width: 245px;
         }
     }
 </style>
