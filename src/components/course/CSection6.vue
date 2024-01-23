@@ -137,11 +137,13 @@
 
     .syllabus_header{
         display: flex;
+        gap: 10px;
         justify-content: space-between;
         align-items: center;
     }
 
     .header_details{
+        flex-shrink: 0;
         display: flex;
         gap: 20px;
         align-items: center;
@@ -157,6 +159,7 @@
         background: var(--white);
         height: 48px;
         font-size: 16px;
+        white-space: nowrap;
         color: var(--grey);
     }
 
@@ -196,6 +199,7 @@
         border-radius: 18px;
         background: var(--light-grey);
         color: var(--black);
+        gap: 10px;
         cursor: pointer;
         transition: .2s ease;
     }
@@ -270,6 +274,7 @@
     .tab-arrow{
         display: flex;
         transition: .3s ease;
+        flex-shrink: 0;
     }
 
     .syllabus-tab.opened .tab-arrow{
@@ -282,5 +287,35 @@
 
     @media screen and (max-width: 1440px) {
         
+    }
+
+    @media screen and (max-width: 1024px) {
+        .download-btn > span{
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .header_details{
+            gap: 5px;
+        }
+        .tab_subtitle{
+            font-size: 17px;
+        }
+    }
+    @media screen and (max-width: 435px) {
+        .tab-arrow{
+            width: 18px;
+            height: auto;
+        }
+        .tab_subtitle{
+            font-size: 14px;
+        }
+        .tab .tab-title{
+            font-size: 17px;
+        }
+        .tab{
+            padding: 25px 20px;
+        }
     }
 </style>

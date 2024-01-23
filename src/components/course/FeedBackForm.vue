@@ -138,7 +138,7 @@
             padding: 55px 50px;
             max-width: 867px;
             gap: 40px;
-            min-width: 718px;
+            min-width: 755px;
         }
     }
     @media screen and (max-width: 1150px) {

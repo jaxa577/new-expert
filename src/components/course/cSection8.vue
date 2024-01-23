@@ -149,6 +149,31 @@
         .priority-card{
             flex: 48%;
             max-width: none;
+            min-width: 393px;
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+
+    }
+    @media screen and (max-width: 768px) {
+        .priorities-card_wrapp{
+            flex-direction: column;
+        }
+        .priority-card{
+            min-width: 0;
+            min-height: 0;
+        }
+        .course-priorities{
+            gap: 25px;
+        }
+        .pr-card-content p{
+            -webkit-line-clamp: 3;
+        }
+    }
+    @media screen and (max-width: 425px) {
+        .priority-card{
+            gap: 20px;
         }
     }
 </style>
