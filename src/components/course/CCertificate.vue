@@ -101,7 +101,9 @@
 
 
     
-    @media screen and (max-width: 1440px) {
-        
+    @media screen and (max-width: 1135px) {
+        .course-certificate{
+            display: none;
+        }            
     }
 </style>

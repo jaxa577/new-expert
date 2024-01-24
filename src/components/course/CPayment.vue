@@ -35,12 +35,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 832px;
+        /* min-height: 832px; */
+        padding: 80px 0;
     }
 
     .c-payment-cont{
         display: flex;
         justify-content: space-between;
+        /* flex-wrap: wrap; */
         gap: 50px;
         align-items: center;
         flex: 1;
@@ -55,6 +57,7 @@
         text-align: center;
         flex: 1.1;
         max-width: 567px;
+        /* min-width: 555px; */
     }
 
     .c-payment-form{
@@ -63,10 +66,18 @@
         align-items: center;
         max-width: fit-content;
         flex: 1;
+        /* min-width: 555px; */
     }
 
     
-    @media screen and (max-width: 1440px) {
-        
+    @media screen and (max-width: 1200px) {
+        .c-payment-cont{
+            flex-direction: column;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .c-payment-form{
+            padding: 0 10px;
+        }
     }
 </style>

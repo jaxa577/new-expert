@@ -85,6 +85,7 @@
     .payment-type{
         display: flex;
         gap: 20px;
+        flex-wrap: wrap;
     }
 
     .Ptype-btn input[type="radio"]{
@@ -95,6 +96,7 @@
         flex: 1;
         display: flex;
         flex-direction: column;
+        min-width: 215px;
     }
 
     .Ptype-btn_label{
