@@ -37,28 +37,34 @@ export default {
 </script>
 
 <template>
-  <div class="course-page_container container">
-    <div class="course-page_wrapp">
-        <cBanner/>
-        <cSection1/>
-        <cSection2/>
-        <cSection3/>
-        <cSection4/>
-        <cSection5/>
-        <FeedBackForm/>
-        <cSection6/>
-        <cSection7/>
-        <cBanner1/>
-        <cSection8/>
-        <cFeedbacks/>
-        <cCertificate/>
+    <div class="main-wrapp">
+        <div class="course-page_container container">
+            <div class="course-page_wrapp top-space">
+                <cBanner/>
+                <cSection1/>
+                <cSection2/>
+                <cSection3/>
+                <cSection4/>
+                <cSection5/>
+                <cSection6/>
+                <cSection7/>
+                <cBanner1/>
+                <cSection8/>
+                <cFeedbacks/>
+                <cCertificate/>
+            </div>
+        </div>
+        <div class="c-payment-layer">
+            <div class="course-page_container container">
+                <cPayment/>
+            </div>
+        </div>
+        <div class="course-page_container container">
+            <div class="course-page_wrapp">
+                <FeedBackForm/>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="c-payment-layer">
-    <div class="course-page_container container">
-        <cPayment/>
-    </div>
-  </div>
 </template>
 
 <style>
@@ -66,11 +72,16 @@ export default {
         display: flex;
         flex-direction: column;
         gap: 180px;
-        padding-top: 50px;
     }
     .c-payment-layer{
         background: var(--c-accent-1);
-        margin: 180px 0;
+    }
+
+    .main-wrapp{
+        display: flex;
+        flex-direction: column;
+        gap: 180px;
+        padding: 50px 0 50px 0;
     }
 
 
@@ -186,8 +197,29 @@ export default {
             font-size: 36px;
             letter-spacing: -0.72px;
         }
-        .course-page_wrapp{
+        .title-2{
+            font-size: 28px;
+            letter-spacing: -0.56px;
+        }
+        .title-3{
+            font-size: 20px;
+            letter-spacing: -0.4px;
+        }
+        .main-wrapp{
             padding-top: 10px;
+        }
+        .paragraph-def, .paragraph-light{
+            font-size: 17px;
+            line-height: 120%;
+            letter-spacing: 0.34px;
+        }
+    }
+    @media screen and (max-width: 768px){
+        .sec-title{
+            gap: 25px;
+        }
+        .course-page_wrapp .main-wrapp{
+            gap: 120px;
         }
     }
 </style>

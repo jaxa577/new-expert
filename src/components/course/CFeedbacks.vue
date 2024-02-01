@@ -222,7 +222,16 @@
     }
 
     
-    @media screen and (max-width: 1440px) {
-        
+    @media screen and (max-width: 1024px) {
+        .fb-title{
+            align-items: flex-start;
+            align-self: stretch;
+        }
+        .course-feedback{
+            gap: 110px;
+        }
+        :deep(.swiper-button-prev), :deep(.swiper-button-next){
+            top: -84px;
+        }
     }
 </style>

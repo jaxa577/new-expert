@@ -36,8 +36,8 @@
                     <img src="@/assets/img/platon.svg" alt="Platon">
                 </div>
                 <div class="platon-desc">
-                    <p>Платон - это набор программных продуктов, предназначенных для быстрой, качественной, без дополнительных затрат разработки, подключения к другим информационным системам и самостоятельного совершенствования крупных электронных информационных систем и баз данных.</p>
-                    <p>Наш курс разработан для всех уровней опыта - от новичков до более опытных программистов, которые хотят расширить свои навыки. Мы поддерживаем интерактивный подход к обучению, предлагая практические задания и проекты, которые помогут вам применить свои знания на практике.</p>
+                    <p class="paragraph-def">Платон - это набор программных продуктов, предназначенных для быстрой, качественной, без дополнительных затрат разработки, подключения к другим информационным системам и самостоятельного совершенствования крупных электронных информационных систем и баз данных.</p>
+                    <p class="paragraph-def">Наш курс разработан для всех уровней опыта - от новичков до более опытных программистов, которые хотят расширить свои навыки. Мы поддерживаем интерактивный подход к обучению, предлагая практические задания и проекты, которые помогут вам применить свои знания на практике.</p>
                 </div>
             </div>
             <div class="platon-course_advs">
@@ -45,19 +45,19 @@
                 <ul class="advs-list">
                     <li class="adv">
                         <img src="@/assets/icons/check_icon.svg">
-                        <span>Глубокое погружение в языки программирования</span>
+                        <p class="paragraph-def">Глубокое погружение в языки программирования</p>
                     </li>
                     <li class="adv">
                         <img src="@/assets/icons/check_icon.svg">
-                        <span>Основы и концепции разработки ПО</span>
+                        <p class="paragraph-def">Основы и концепции разработки ПО</p>
                     </li>
                     <li class="adv">
                         <img src="@/assets/icons/check_icon.svg">
-                        <span>Профессиональные преподаватели и эксперты</span>
+                        <p class="paragraph-def">Профессиональные преподаватели и эксперты</p>
                     </li>
                     <li class="adv">
                         <img src="@/assets/icons/check_icon.svg">
-                        <span>Гибкость и индивидуальный подход</span>
+                        <p class="paragraph-def">Гибкость и индивидуальный подход</p>
                     </li>
                 </ul>
             </div>
@@ -106,9 +106,6 @@
         gap: 20px;
         max-width: 800px;
     }
-    .platon-desc p{
-        font-size: 20px;
-    }
 
     .platon-course_desc{
         display: flex;
@@ -141,9 +138,6 @@
         align-items: center;
         gap: 5px;
     }
-    .advs-list .adv > *{
-        font-size: 20px;
-    }
 
     .platon-course_video{
         cursor: pointer;
@@ -173,7 +167,6 @@
 
     .platon-course_video .play-btn{
         display: flex;
-        padding: 5px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -207,4 +200,26 @@
             min-width: 0;
         }
     }
+    @media screen and (max-width: 768px){
+        .platon-course{
+            border-radius: 20px;
+            padding: 50px 30px;
+        }
+        .advs-list_title{
+            font-size: 17px;
+        }
+        .platon-course_video .play-btn{
+            width: 50px;
+            height: 50px;
+        }
+        .platon-logo{
+            max-width: 115px;
+        }
+    }
+    @media screen and (max-width: 425px){
+        .platon-course{
+            padding: 25px 15px;
+        }
+    }
+    
 </style>

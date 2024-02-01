@@ -16,19 +16,19 @@
         <div class="course-benefit-options">
             <div class="benefit_option">
                 <img src="@/assets/icons/check_icon.svg">
-                <span>Писать простые программы на Platon</span>
+                <p>Писать простые программы на Platon</p>
             </div>
             <div class="benefit_option">
                 <img src="@/assets/icons/check_icon.svg">
-                <span>Логика с условиями и циклами</span>
+                <p>Логика с условиями и циклами</p>
             </div>
             <div class="benefit_option">
                 <img src="@/assets/icons/check_icon.svg">
-                <span>Использование Jupyter Notebook</span>
+                <p>Использование Jupyter Notebook</p>
             </div>
             <div class="benefit_option">
                 <img src="@/assets/icons/check_icon.svg">
-                <span>Декораты</span>
+                <p>Декораты</p>
             </div>
         </div>
     </section>
@@ -73,7 +73,7 @@
         gap: 14px;
     }
 
-    .benefit_option > *{
+    .benefit_option p{
         font-size: 20px;
         font-weight: 700;
     }
@@ -82,5 +82,43 @@
         width: 42px;
         height: 42px;
         flex-shrink: 0;
+    }
+
+    @media screen and (max-width: 1440px) {
+        .course-benefits{
+            flex-wrap: wrap;
+        }
+        .course-benefit-options{
+            min-width: 510px;
+        }
+        .course-benefit-content{
+            min-width: 555px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .course-benefit-content{
+            padding: 25px;
+            gap: 40px;
+        }
+        .benefit_option p{
+            font-size: 17px;
+            line-height: 120%;
+            letter-spacing: 0.34px;
+        }
+        .benefit_option{
+            padding: 20px;
+            min-height: 0;
+        }
+        .benefit_option img{
+            width: 25px;
+            height: 25px;
+        }
+
+        .course-benefits{
+            flex-direction: column;
+        }
+        .course-benefit-options, .course-benefit-content{
+            min-width: 0;
+        }
     }
 </style>

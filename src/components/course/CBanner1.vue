@@ -39,6 +39,7 @@
 
 <style scoped>
     .ad-banner{
+        position: relative;
         display: flex;
         border-radius: 30px;
         background: var(--black);
@@ -48,6 +49,7 @@
     }
 
     .banner-pic{
+        /* border-radius: 30px 0 0 30px; */
         flex: 1;
         max-width: 772px;
         background: url('@/assets/img/banner1.jpg');
@@ -60,7 +62,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        flex: 1.1;
+        flex: 1;
+        padding: 0 20px;
     }
 
     .banner-content{
@@ -116,7 +119,57 @@
 
 
     
-    @media screen and (max-width: 1440px) {
-        
+    @media screen and (max-width: 1024px) {
+        .ad-banner{
+            flex-direction: column;
+            padding: 4px 4px 50px 4px;
+            overflow: visible;
+            margin-bottom: 60px;
+            gap: 20px;
+            border-radius: 20px;
+        }
+        .banner-pic{
+            aspect-ratio: 360/269;
+            border-radius: 20px;
+            max-width: 100%;
+            max-height: 580px;
+        }
+        .banner-btn{
+            position: absolute;
+            bottom: -60px;
+            left: 0;
+            max-width: 100%;
+        }
+        .banner_content, .discount-block{
+            gap: 15px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .ad-banner{
+            min-height: 0;
+        }
+        .banner-pic{
+            max-height: 330px;
+        }
+        .discount-period{
+            font-size: 17px;
+        }
+        .discount-title{
+            font-size: 64px;
+        }
+        .banner_content{
+            max-width: 430px;
+        }
+    }
+    @media screen and (max-width: 425px) {
+        .discount-period{
+            font-size: 14px;
+        }
+        .discount-title{
+            font-size: 42px;
+        }
+        .ad-banner{
+            padding: 4px 4px 20px 4px;
+        }
     }
 </style>

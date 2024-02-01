@@ -28,7 +28,7 @@
                 <div class="author-details">
                     <div class="author-name">
                         <h3 class="author_name title-3">Алексей Оксов</h3>
-                        <img src="@/assets/icons/verified_icon.svg">
+                        <img class="v-icon" src="@/assets/icons/verified_icon.svg">
                     </div>
                     <p class="author-bio paragraph-light">Саша, виртуозный программист и вдохновляющий преподаватель, способен превратить сложные концепции программирования в простые и понятные идеи. Он с легкостью разгадывает технические головоломки и находит элегантные решения для самых сложных задач. Саша не только передает свои знания, но и вдохновляет своих студентов креативным мышлением и стремлением к совершенству.</p>
                 </div>
@@ -122,6 +122,49 @@
     @media screen and (max-width: 1440px) {
         .course-author{
             height: fit-content;
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        .author-profile{
+            align-items: flex-start;
+            flex-direction: column;
+            max-width: 718px;
+        }
+        .author-photo{
+            flex-direction: column-reverse;
+            align-items: flex-start;
+            padding-bottom: 0;
+            border: none;
+            max-width: 460px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .author-profile{
+            gap: 30px;
+            max-width: 550px;
+        }
+        .author-info{
+            gap: 40px;
+        }
+        .author-photo_title{
+            font-size: 28px;
+        }
+        .author-btns{
+            max-width: 100%;
+            gap: 15px;
+            flex-direction: column;
+        }
+        .author_btn{
+            flex: none;
+        }
+        .v-icon{
+            width: 25px;
+            height: auto;
+        }
+        .author-photo{
+            max-width: 380px;
         }
     }
 </style>

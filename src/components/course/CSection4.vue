@@ -188,7 +188,6 @@
 
     .course-process_video .play-btn{
         display: flex;
-        padding: 5px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -204,7 +203,54 @@
         .process_card, .course-process_video{
             flex: 48%;
             max-width: none;
+            min-width: 393px;
             min-height: 393px;
+        }
+        .course-process_video{
+            min-height: 450px;
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        
+    }
+    @media screen and (max-width: 768px) {
+        .course-process{
+            gap: 20px;
+        }
+        .process-cards_list{
+            flex-direction: column;
+        }
+        .process_card{
+            flex: 1;
+            min-width: 0;
+            min-height: 0;
+            padding: 25px 20px;
+        }
+        .course-process_video{
+            flex: 1;
+            padding: 30px;
+            min-width: 0;
+            min-height: 470px;
+            overflow: visible;
+            margin-bottom: 70px;
+        }
+        .course-process_video .take-course_btn{
+            height: 60px;
+            width: 100%;
+            bottom: -70px;
+        }
+        .course-process_video .play-btn{
+            width: 50px;
+            height: 50px;
+        }
+    }
+    @media screen and (max-width: 425px) {
+        .card_header{
+            padding-bottom: 0;
+            border: none;
+        }
+        .card_content{
+            display: none;
         }
     }
 </style>
